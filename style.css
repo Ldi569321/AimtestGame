@@ -1,9 +1,34 @@
+@font-face {
+    font-family: 'GangwonEduPowerExtraBoldA';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/GangwonEduPowerExtraBoldA.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+* {
+    font-family: 'GangwonEduPowerExtraBoldA';
+}
+
 body {
     box-sizing: border-box;
     margin: 0;
     height: 100vh;
     position: relative;
-    background-color: darkgray;
+    background-color: rgb(183, 196, 207);
+}
+
+.box {
+    padding: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 10px solid rgb(150, 126, 118);
+    width: 800px;
+    height: 450px;
+    background-color: rgb(238, 227, 203);
+    z-index: 1;
+    border-radius: 20px;
 }
 
 
@@ -16,21 +41,9 @@ body {
     border: 2px solid black(151, 34, 34);
     color: white;
     font-size: 25px;
+    padding-top: 12px;
 }
 
-
-.box {
-    padding: 20px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    border: 2px solid black;
-    width: 800px;
-    height: 450px;
-    background-color: white;
-    z-index: 1;
-}
 
 .start {
     position: absolute;
@@ -40,14 +53,15 @@ body {
     border: 0;
     width: 800px;
     height: 450px;
-    background-color: rgb(97, 97, 255);
+    background-color: rgb(215, 192, 174);
     color: white;
     font-size: 50px;
     z-index: 3;
+    border-radius: 10px;
 }
 
 .start:active {
-    background-color: rgb(64, 64, 255);
+    background-color: rgb(146, 130, 118);
     color: white;
 }
 
@@ -72,10 +86,84 @@ body {
     font-size: 20px;
     text-align: center;
     padding: 5px 0px;
+    padding-top: 15px;
+    border-radius: 10px;
 }
 
 .missCount {
     position: absolute;
-    top: 5%;
-    left: 10%;
+    top: 15%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #3b4855;
+    font-size: 30px;
+}
+
+.end {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 1200px;
+    height: 600px;
+    transition: 0.5s ease all;
+    background-color: rgb(208, 184, 168);
+    border-radius: 20px;
+    color: rgb(73, 65, 77);
+    transition: 0.5s ease all;
+    opacity: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 40px;
+    padding-top: 15px;
+}
+
+.outPage{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 1200px;
+    height: 600px;
+    transition: 0.5s ease all;
+    background-color: rgb(230, 59, 78);
+    transition: 0.5s ease all;
+    opacity: 0;
+    font-size: 50px;
+    display: flex;
+    color: white;
+    justify-content: center;
+    align-items: center;
+}
+
+.redo {
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 500px;
+    height: 100px;
+    opacity: 0;
+    transition: 0.3s ease all;
+    background-color: rgb(250, 148, 148);
+    border: 0;
+    border-radius: 20px;
+    padding-top: 15px;
+    font-size: 35px;
+    color: rgb(255, 235, 235);
+}
+
+.redo:active {
+    background-color: rgb(212, 111, 111);
+}
+
+.on {
+    opacity: 1;
+    z-index: 4;
+}
+
+.off {
+    opacity: 0;
+    z-index: 4;
 }
