@@ -1,0 +1,81 @@
+body {
+    box-sizing: border-box;
+    margin: 0;
+    height: 100vh;
+    position: relative;
+    background-color: darkgray;
+}
+
+
+.target {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: black;
+    border: 2px solid black(151, 34, 34);
+    color: white;
+    font-size: 25px;
+}
+
+
+.box {
+    padding: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 2px solid black;
+    width: 800px;
+    height: 450px;
+    background-color: white;
+    z-index: 1;
+}
+
+.start {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 0;
+    width: 800px;
+    height: 450px;
+    background-color: rgb(97, 97, 255);
+    color: white;
+    font-size: 50px;
+    z-index: 3;
+}
+
+.start:active {
+    background-color: rgb(64, 64, 255);
+    color: white;
+}
+
+.targetBox {
+    position: relative;
+    height: 90%;
+}
+
+.center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 85%;
+    height: 95%;
+}
+
+.counter {
+    background-color: red;
+    width:200px;
+    color: white;
+    font-size: 20px;
+    text-align: center;
+    padding: 5px 0px;
+}
+
+.missCount {
+    position: absolute;
+    top: 5%;
+    left: 10%;
+}
