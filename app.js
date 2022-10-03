@@ -115,7 +115,7 @@ const redo2 = document.querySelector(".redo2");
 function GameEnd() {
     redo2.classList.toggle('on');
     end.classList.toggle('on');
-    end.innerText = ((timeScore / 4) * ((50 / (50 + miss)) * 100).toFixed(2)).toFixed(2) + "점입니다.";
+    end.innerText = (((100 - timeScore) / 4) * ((50 / (50 + miss)) * 100).toFixed(2)).toFixed(2) + "점입니다.";
 }
 
 redo2.addEventListener("click", () => {
