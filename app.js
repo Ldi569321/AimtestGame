@@ -21,6 +21,7 @@ start.addEventListener("click", () => {
     }
 });
 
+
 const box = document.querySelector(".box")
 const doctarget = document.querySelectorAll(".target");
 const missCount = document.querySelector(".missCount");
@@ -33,24 +34,25 @@ doctarget.forEach((doctarget) => {
                 count++;
                 miss--;
                 nextClick();
-                missCount.innerHTML = `현재 타겟 적중률은 ${100 - miss}%입니다.`;
                 if (count == 54) {
+                    miss++;
                     timeStop = true;
                     gamestatus = false;
                     GameEnd();
                 }
-            } else {
-                miss++;
-                missCount.innerHTML = `현재 타겟 적중률은 ${100 - miss}%입니다.`;
+            } else if (timeStop == false) {
+                miss = miss + 0.5;
+                missCount.innerHTML = `현재 타겟 적중률은 ${((50 / (50 + miss)) * 100).toFixed(2)}%입니다.`;
                 gameOver()
             }
+            missCount.innerHTML = `현재 타겟 적중률은 ${((50 / (50 + miss)) * 100).toFixed(2)}%입니다.`;
         }
     })
 })
 box.addEventListener("click", function a() {
     if (timeStop == false) {
         miss++;
-        missCount.innerHTML = `현재 타겟 적중률은 ${100 - miss}%입니다.`;
+        missCount.innerHTML = `현재 타겟 적중률은 ${((50 / (50 + miss)) * 100).toFixed(2)}%입니다.`;
         gameOver()
     }
 });
@@ -58,7 +60,7 @@ box.addEventListener("click", function a() {
 
 const outPage = document.querySelector(".outPage");
 const redoBtn = document.querySelector(".redo")
-const OUT = [
+const scoreOUT = [
     {
         answer: "제대로 누르고있는거죠?",
     },
@@ -73,15 +75,30 @@ const OUT = [
     }
 ]
 
+const timeOUT = [
+    {
+        answer: "잠은 침대에서 자는 거에요.",
+    },
+    {
+        answer: "타임아웃!",
+    },
+    {
+        answer: "제대로 눈뜨고 해볼래요?",
+    },
+    {
+        answer: "여기 100초 넘기는 사람이 있어요!",
+    }
+]
+
 function gameOver() {
-    if (miss >= 100) {
-        missCount.innerHTML = `현재 타겟 적중률은 0%입니다.`
+    if (miss >= 150) {
+        missCount.innerHTML = `아웃!`
         outPage.classList.toggle('on');
         redoBtn.classList.toggle('on');
         timeStop = true;
         gamestatus = false;
 
-        let random = OUT[Math.floor(Math.random() * OUT.length)];
+        let random = scoreOUT[Math.floor(Math.random() * scoreOUT.length)];
         outPage.innerText = random.answer;
     }
 }
@@ -93,11 +110,17 @@ redoBtn.addEventListener("click", () => {
 const end = document.querySelector(".end")
 
 let timeScore = 0;
+const redo2 = document.querySelector(".redo2");
 
 function GameEnd() {
+    redo2.classList.toggle('on');
     end.classList.toggle('on');
-    end.innerText = ((timeScore / 2) * (50 / miss)) + "점입니다."
+    end.innerText = ((timeScore / 4) * ((50 / (50 + miss)) * 100).toFixed(2)).toFixed(2) + "점입니다.";
 }
+
+redo2.addEventListener("click", () => {
+    window.location.reload();
+});
 
 function nextClick() {
     if (count < 50) {
@@ -115,6 +138,15 @@ function startBtnClick() {
             timeScore = `${sec}` + `.${ms}`;
             time.innerHTML = `${sec}:${ms}`;
             a++;
+            if (sec >= 100) {
+                timeStop = true;
+                gamestatus = false;
+                outPage.classList.toggle('on');
+                redoBtn.classList.toggle('on');
+                let random = timeOUT[Math.floor(Math.random() * timeOUT.length)];
+                outPage.innerText = random.answer;
+            }
+
             if (a > 99) {
                 b++;
                 a = 0;

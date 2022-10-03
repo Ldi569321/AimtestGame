@@ -139,7 +139,7 @@ body {
 
 .redo {
     position: absolute;
-    top: 70%;
+    top: 65%;
     left: 50%;
     transform: translate(-50%, -50%);
     width: 500px;
@@ -154,8 +154,30 @@ body {
     color: rgb(255, 235, 235);
 }
 
+
+.redo2 {
+    position: absolute;
+    top: 65%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 500px;
+    height: 100px;
+    opacity: 0;
+    transition: 0.3s ease all;
+    background-color: rgb(53, 66, 89);
+    border: 0;
+    border-radius: 20px;
+    padding-top: 15px;
+    font-size: 35px;
+    color: rgb(205, 194, 174);
+}
+
 .redo:active {
     background-color: rgb(212, 111, 111);
+}
+
+.redo2:active {
+    background-color: rgb(35, 44, 59);
 }
 
 .on {
